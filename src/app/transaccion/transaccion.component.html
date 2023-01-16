@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/logeado"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar Transacción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Monto Transacción</ion-label>
+    <ion-input type="number" [(ngModel)]="model.MONTO_MOVIMIENTO"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input type="text" [(ngModel)]="model.DESCRIPCION"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cuenta Destino</ion-label>
+    <ion-input type="text" [(ngModel)]="model.CUENTA_DESTINO"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarTransaccion()">Agregar Transacción</ion-button>
+
+  <ion-title>Histórico de Transacciones</ion-title>
+  <ion-list>
+    <ion-item *ngFor="let registro of transaccion">
+      <ion-label *ngIf="registro.MONTO_MOVIMIENTO !== 0">
+        <h2>{{registro.CUENTA_DESTINO}}</h2>
+        <p>{{registro.DESCRIPCION}}</p>
+        <p>{{registro.MONTO_MOVIMIENTO}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

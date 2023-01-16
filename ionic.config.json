@@ -1,5 +1,7 @@
 {
   "name": "evalfinal",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
